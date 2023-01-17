@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to 'Instaclone', root_path, class:  'nav-link active text-danger navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+         <%= link_to "Upload post", new_post_path, class: "nav-link active"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", home_about_path, class: "nav-link active"%>
+        </li>
+        <li class="nav-item">
+         <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link active" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Edit-Account', edit_user_registration_path, class: "nav-link active" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'View Post', posts_myposts_path, class: "nav-link active" %>
+            </li>
+         <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: "nav-link active" %>
+            </li>
+         <% end %>
+       </li>
+       
+         
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

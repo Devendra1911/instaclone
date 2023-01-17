@@ -1,0 +1,10 @@
+
+<p class="text-success"><%= notice %></p>
+<h1 class="devv">Posts</h1>
+<div id="posts" class="text-center">
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>
+
+

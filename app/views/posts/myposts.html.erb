@@ -1,0 +1,11 @@
+<p class="text-success"><%= notice %></p>
+<h1 class="devv">Posts</h1>
+<div id="posts" class="text-center">
+  <% @posts.each do |post| %>
+    <% if post.user.id == current_user.id %>
+      <%= render post %>
+    <% end %>
+  <% end %>
+</div>
+
+
